@@ -79,16 +79,16 @@ for (var i = 0; i < district.length; i++) {
     for (var j = 0; j < partsTable.length; j++) {
         resultTable += partsTable[j];
         if (j == 0) {
-            resultTable += monthPlusYear;
+            resultTable += monthPlusYear;               //В ... январе 2017 ...
         } else if (j == 1) {
-            resultTable += district[i];
+            resultTable += district[i];                 //года на территории ... Заводского ...
         } else if (j == 2) {
-            resultTable += makeStr(districtAir);
+            resultTable += makeStr(districtAir);        //района ... отобрано и исследовано 100 проб ...
         } else if (j == 3) {
-            resultTable += makeStr(cityAir);
+            resultTable += makeStr(cityAir);            //атм-ого воздуха.П-б с прев-ем -//- не обнар-но.В ц-м по городу ... отобрано и исследовано 2000 проб ...
         } else if (j == 4) {
-            resultTable += cityResult;
-        }
+            resultTable += cityResult;                  //П-б с прев-м не обнар-но. Ком-ный показ-ль загр-я -//- составил ... 0.111 ...
+        }                                               //что соотв-т допус-мой степени загр-я атм-ры. -//-
     }
     
     divMain.innerHTML += resultTable;
