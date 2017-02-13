@@ -27,7 +27,7 @@ var month = [
     'декабре'
 ];
 
-var table = [
+var partsTable = [
     '<table><tbody><tr class="conclusion"><td>В <strong>',
     ' года</strong> на территории <strong>',
     ' района</strong>',
@@ -76,8 +76,8 @@ for (var i = 0; i < district.length; i++) {
     
     var resultTable = '';
     
-    for (var j = 0; j < table.length; j++) {
-        resultTable += table[j];
+    for (var j = 0; j < partsTable.length; j++) {
+        resultTable += partsTable[j];
         if (j == 0) {
             resultTable += monthPlusYear;
         } else if (j == 1) {
