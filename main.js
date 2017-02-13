@@ -43,6 +43,27 @@ var currentYear = date.getFullYear();
 
 var monthPlusYear = month[lastMonth] + ' ' + currentYear;
 
+function makeStr(num) {
+    this.num = num;
+    num = String(num);
+    var res = '';
+    var lastNum = +num.slice(-1);
+    if (lastNum == 0 || lastNum > 4 || +num > 4 && +num < 21) {
+        res += ' отобрано и исследовано <strong>';
+        res += num;
+        res += ' проб';
+    } else if (lastNum == 1) {
+        res += ' отобрана и исследована <strong>';
+        res += num;
+        res += ' проба';
+    } else if (lastNum > 1 && lastNum <5) {
+        res += ' отобраны и исследованы <strong>';
+        res += num;
+        res += ' пробы';
+    }
+    return res;
+}
+
 do {
     var cityAir = prompt('Введите число проб в целом по городу:');
     var cityResult = prompt('Введите комплексный показатель загрязнения:');
@@ -62,35 +83,9 @@ for (var i = 0; i < district.length; i++) {
         } else if (j == 1) {
             resultTable += district[i];
         } else if (j == 2) {
-            var lastNum = +districtAir.slice(-1);
-            if (lastNum == 0 || lastNum > 4 || +districtAir > 4 && +districtAir < 21) {
-                resultTable += ' отобрано и исследовано <strong>';
-                resultTable += districtAir;
-                resultTable += ' проб';
-            } else if (lastNum == 1) {
-                resultTable += ' отобрана и исследована <strong>';
-                resultTable += districtAir;
-                resultTable += ' проба';
-            } else if (lastNum > 1 && lastNum <5) {
-                resultTable += ' отобраны и исследованы <strong>';
-                resultTable += districtAir;
-                resultTable += ' пробы';
-            }
+            resultTable += makeStr(districtAir);
         } else if (j == 3) {
-            var lastNum = +cityAir.slice(-1);
-            if (lastNum == 0 || lastNum > 4 || +cityAir > 4 && +cityAir < 21) {
-                resultTable += ' отобрано и исследовано <strong>';
-                resultTable += cityAir;
-                resultTable += ' проб';
-            } else if (lastNum == 1) {
-                resultTable += ' отобрана и исследована <strong>';
-                resultTable += cityAir;
-                resultTable += ' проба';
-            } else if (lastNum > 1 && lastNum <5) {
-                resultTable += ' отобраны и исследованы <strong>';
-                resultTable += cityAir;
-                resultTable += ' пробы';
-            }
+            resultTable += makeStr(cityAir);
         } else if (j == 4) {
             resultTable += cityResult;
         }
